@@ -3,6 +3,7 @@ namespace :import_transactions do
 
   desc "Import Transactions from CSV"
   task transactions: :environment do
+    counter = 0
     filename = File.join Rails.root, "/db/csv/transactions.csv"
     CSV.foreach(filename, headers: true) do |row|
       transaction = Transaction.create(id: row["id"],

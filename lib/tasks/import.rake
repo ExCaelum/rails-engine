@@ -1,15 +1,13 @@
 require 'csv'
 namespace :import do
 
-  desc "Import Users from CSV"
-  task users: :environment do
-    filename = File.join Rails.root, "/db/csv/*"
-    CSV.foreach(filename, headers: true) do |row|
-      user = User.create(name: row["name"], email: row["email"])
-      puts "#{row["email"]} - #{user.errors.full_messages.join(", ")}" if user.errors.any?
-      counter += 1 if user.persisted?
-    end
-
-    puts "Imported #{counter} users"
+  desc "Import data from CSVs"
+  task data: :environment do
+    Rake::Task['import_customers:customers'].invoke
+    Rake::Task['import_merchants:merchants'].invoke
+    Rake::Task['import_items:items'].invoke
+    Rake::Task['import_invoices:invoices'].invoke
+    Rake::Task['import_invoice_items:invoice_items'].invoke
+    Rake::Task['import_transactions:transactions'].invoke
   end
 end

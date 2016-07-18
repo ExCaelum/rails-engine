@@ -3,6 +3,7 @@ namespace :import_invoices do
 
   desc "Import invoices from CSV"
   task invoices: :environment do
+    counter = 0
     filename = File.join Rails.root, "/db/csv/invoices.csv"
     CSV.foreach(filename, headers: true) do |row|
       invoice = Invoice.create(id: row["id"],

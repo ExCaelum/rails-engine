@@ -3,9 +3,10 @@ namespace :import_merchants do
 
   desc "Import Merchants from CSV"
   task merchants: :environment do
+    counter = 0
     filename = File.join Rails.root, "/db/csv/merchants.csv"
     CSV.foreach(filename, headers: true) do |row|
-      merchant = Merchants.create(id: row["id"],
+      merchant = Merchant.create(id: row["id"],
                                    name: row["name"],
                                    created_at: row["created_at"],
                                    updated_at: row["updated_at"])

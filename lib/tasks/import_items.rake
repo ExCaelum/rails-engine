@@ -3,8 +3,9 @@ namespace :import_items do
 
   desc "Import Items from CSV"
   task items: :environment do
+    counter = 0
     filename = File.join Rails.root, "/db/csv/items.csv"
-    CSV.foreach(filename, :headers: true) do |row|
+    CSV.foreach(filename, headers: true) do |row|
       item = Item.create(id: row["id"],
                           name: row["name"],
                           description: row["description"],
@@ -12,7 +13,7 @@ namespace :import_items do
                           merchant_id: row["merchant_id"],
                           created_at: row["created_at"],
                           updated_at: row["updated_at"])
-      puts "#{item.full_messages.join(", ")}" if item.erros.any?
+      puts "#{item.full_messages.join(", ")}" if item.errors.any?
       counter += 1 if item.persisted?
     end
 
