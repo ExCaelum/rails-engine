@@ -9,7 +9,7 @@ namespace :import_ do
                                    name: row["name"],
                                    created_at: row["created_at"],
                                    updated_at: row["updated_at"])
-      puts "#{merchants.full_messages.joing(", ")}" if merchants.errors.any?
+      puts "#{merchants.full_messages.join(", ")}" if merchants.errors.any?
       counter += 1 if merchants.persisted?
     end
 
