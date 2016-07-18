@@ -5,5 +5,4 @@ class ApplicationController < ActionController::API
   self.responder = ApplicationResponder
   respond_to :html
 
-  include ActionController
 end
