@@ -22,3 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# Rails Engine
+#### Colin Osborn & Parker Phillips
+* Clone the project into a repository on your machine
+* Run bundle on the project
