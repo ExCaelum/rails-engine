@@ -27,3 +27,4 @@ Things you may want to cover:
 #### Colin Osborn & Parker Phillips
 * Clone the project into a repository on your machine
 * Run bundle on the project
+* run `bundle exec rake db:setup`
