@@ -1,8 +1,8 @@
-require "application_responder"
+# require "application_responder"
 
 class ApplicationController < ActionController::API
   include ActionController::MimeResponds
-  self.responder = ApplicationResponder
-  respond_to :html
+  # self.responder = ApplicationResponder
+  # respond_to :html
 
 end
