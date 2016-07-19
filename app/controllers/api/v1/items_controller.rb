@@ -5,4 +5,8 @@ class Api::V1:ItemsController < ApplicationController
     respond_with Items.all
   end
 
+  def show
+    respond_with Items.find(params[:id])
+  end
+
 end

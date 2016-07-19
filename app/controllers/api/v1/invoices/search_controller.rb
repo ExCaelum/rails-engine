@@ -1,4 +1,4 @@
-class Api::V1::SearchController < ApplicationController
+class Api::V1::Invoice::SearchController < ApplicationController
   respond_to :json, :xml
 
   def index
