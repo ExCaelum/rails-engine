@@ -1,4 +1,4 @@
-class Api::V1::Item::SearchController < ApplicationController
+class Api::V1::Items::SearchController < ApplicationController
   respond_to :json, :xml
 
   def index
@@ -6,7 +6,12 @@ class Api::V1::Item::SearchController < ApplicationController
   end
 
   def show
-    respond_with Item.find_by(item_params)
+    if params["unit_price"]
+      price = params["unit_price"].delete(".").to_i
+      respond_with Item.find_by(unit_price: price)
+    else
+      respond_with Item.where(item_params).first
+    end
   end
 
   private

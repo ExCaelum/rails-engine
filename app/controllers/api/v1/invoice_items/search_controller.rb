@@ -2,11 +2,21 @@ class Api::V1::InvoiceItems::SearchController < ApplicationController
   respond_to :json, :xml
 
   def index
-    respond_with InvoiceItems.where(invoice_items_params)
+    if params["unit_price"]
+      price = params["unit_price"].delete(".").to_i
+      respond_with InvoiceItem.where(unit_price: price)
+    else
+      respond_with InvoiceItem.where(invoice_items_params)
+    end
   end
 
   def show
-    respond_with InvoiceItems.find_by(invoice_items_params)
+    if params["unit_price"]
+      price = params["unit_price"].delete(".").to_i
+      respond_with InvoiceItem.find_by(unit_price: price)
+    else
+      respond_with InvoiceItem.find_by(invoice_items_params)
+    end
   end
 
   private
