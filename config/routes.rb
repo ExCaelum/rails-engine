@@ -14,8 +14,8 @@ Rails.application.routes.draw do
       end
       namespace :invoice_items do
         get "find", to: "search#show", defaults: {format: :json}
-        get "random", to: "search#index", defaults: {format: :json}
         get "find_all", to: "search#index", defaults: {format: :json}
+        get "random", to: "search#index", defaults: {format: :json}
       end
       namespace :merchants do
         get "find", to: "search#show", defaults: {format: :json}
