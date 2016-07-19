@@ -1,12 +1,12 @@
-class Api::V1:InvoiceItemsController < ApplicationController
+class Api::V1::InvoiceItemsController < ApplicationController
   respond_to :json, :xml
 
   def index
-    respond_with InvoiceItems.all
+    respond_with InvoiceItem.all
   end
 
   def show
-    respond_with InvoiceItems.find(params[:id])
+    respond_with InvoiceItem.find(params[:id])
   end
 
 end
