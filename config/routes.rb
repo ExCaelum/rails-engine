@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         member do
           get "invoice_items", to: "items/invoice_items#index"
           get "merchant", to: "items/merchants#show"
+          get "best_day", to: "items/best_day#show"
         end
       end
 
