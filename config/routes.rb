@@ -1,3 +1,120 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  namespace :api do
+    namespace :v1, defaults: {format: :json} do
+
+      resources :items, only: [:index, :show] do
+        collection do
+          get "find", to: "items/search#show"
+          get "find_all", to: "items/search#index"
+          get "random", to: "items/search#index"
+        end
+
+        member do
+          get "invoice_items", to: "items/invoice_items#index"
+          get "merchant", to: "items/merchants#show"
+        end
+      end
+
+      resources :invoice_items, only: [:index, :show] do
+        collection do
+          get "find", to: "invoice_items/search#show"
+          get "find_all", to: "invoice_items/search#index"
+          get "random", to: "invoice_items/search#index"
+        end
+
+        member do
+          get "invoice", to: "invoice_items/invoices#show"
+          get "item", to: "invoice_item/items#show"
+        end
+      end
+
+      resources :invoices, only: [:index, :show] do
+        collection do
+          get "find", to: "invoices/search#show"
+          get "find_all", to: "invoices/search#index"
+          get "random", to: "invoices/search#index"
+        end
+
+        member do
+          get "transactions", to: "invoices/transactions#index"
+          get "invoice_items", to: "invoices/invoice_items#index"
+          get "items", to: "invoices/items#index"
+          get "customer", to: "invoices/customers#show"
+          get "merchant", to: "invoices/merchants#show"
+        end
+      end
+
+      resources :merchants, only: [:index, :show] do
+        collection do
+          get "find", to: "merchants/search#show"
+          get "find_all", to: "merchants/search#index"
+          get "random", to: "merchants/search#index"
+        end
+
+        member do
+          get "items", to: "merchants/items#index"
+          get "invoices", to: "merchants/invoices#index"
+        end
+      end
+
+      resources :transactions, only: [:index, :show] do
+        collection do
+          get "find", to: "transactions/search#show"
+          get "find_all", to: "transactions/search#index"
+          get "random", to: "transactions/search#index"
+        end
+
+        member do
+          get "invoice", to: "transactions/invoices#show"
+        end
+      end
+
+      resources :customers, only: [:index, :show] do
+        collection do
+          get "find", to: "customers/search#show"
+          get "find_all", to: "customers/search#index"
+          get "random", to: "customers/search#index"
+        end
+
+        member do
+          get "invoices", to: "customers/invoices#index"
+          get "transactions", to: "customers/transactions#index"
+        end
+      end
+
+
+
+      # namespace :invoices do
+      #   get "find", to: "search#show"
+      #   get "find_all", to: "search#index"
+      #   get "random", to: "search#index"
+      # end
+      # namespace :items do
+      #   get "find", to: "search#show"
+      #   get "find_all", to: "search#index"
+      #   get "random", to: "search#index"
+      # end
+      # namespace :invoice_items do
+      #   get "find", to: "search#show"
+      #   get "find_all", to: "search#index"
+      #   get "random", to: "search#index"
+      # end
+      # namespace :merchants do
+      #   get "find", to: "search#show"
+      #   get "find_all", to: "search#index"
+      #   get "random", to: "random#show"
+      # end
+      # namespace :transactions do
+      #   get "find", to: "search#show"
+      #   get "find_all", to: "search#index"
+      #   get "random", to: "random#show"
+      # end
+      # namespace :customers do
+      #   get "find", to: "search#show"
+      #   get "find_all", to: "search#index"
+      #   get "random", to: "random#show"
+      # end
+    end
+  end
 end

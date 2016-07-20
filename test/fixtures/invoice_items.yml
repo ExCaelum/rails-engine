@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item: one
+  invoice: one
+  quantity: MyString
+  unit_price: 1
+
+two:
+  item: two
+  invoice: two
+  quantity: MyString
+  unit_price: 1
