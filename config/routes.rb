@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
         member do
           get "invoice", to: "invoice_items/invoices#show"
-          get "item", to: "invoice_item/items#show"
+          get "item", to: "invoice_items/items#show"
         end
       end
 
