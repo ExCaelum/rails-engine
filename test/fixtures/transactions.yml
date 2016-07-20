@@ -2,12 +2,12 @@
 
 one:
   invoice: one
-  credit_card_number: MyString
-  credit_card_expiration_date: 2016-07-18 15:26:11
-  result: MyString
+  credit_card_number: 4654405418249632
+  invoice_id: 2016-07-18 15:26:11
+  result: success
 
 two:
   invoice: two
-  credit_card_number: MyString
+  credit_card_number: 4654405418249688
   credit_card_expiration_date: 2016-07-18 15:26:11
-  result: MyString
+  result: success
