@@ -3,6 +3,6 @@ class Api::V1::Customers::TransactionsController < ApplicationController
 
   def index
     customer = Customer.find(params[:id])
-    respond_with customer.transactions
+    render json: customer.transactions.flatten, each_serializer: TransactionSerializer
   end
 end
