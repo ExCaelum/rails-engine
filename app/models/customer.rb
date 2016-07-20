@@ -3,12 +3,22 @@ class Customer < ApplicationRecord
 
 
   def transactions
-    trans = []
-    transactions = Transaction.joins(:invoice)
+    trans =[]
     self.invoices.each do |invoice|
-      trans << transactions.where(invoice_id: invoice.id)
+      invoice.transactions.each do |transaction|
+        trans << transaction
+      end
     end
     trans
   end
+  
+  # def transactions
+  #   trans = []
+  #   transactions = Transaction.joins(:invoice)
+  #   self.invoices.each do |invoice|
+  #     trans << transactions.where(invoice_id: invoice.id)
+  #   end
+  #   trans
+  # end
 
 end
