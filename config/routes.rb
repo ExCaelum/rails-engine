@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
         member do
           get "invoice", to: "invoice_items/invoices#show"
-          get "item", to: "invoice_item/items#show"
+          get "item", to: "invoice_items/items#show"
         end
       end
 
@@ -82,39 +82,6 @@ Rails.application.routes.draw do
           get "transactions", to: "customers/transactions#index"
         end
       end
-
-
-
-      # namespace :invoices do
-      #   get "find", to: "search#show"
-      #   get "find_all", to: "search#index"
-      #   get "random", to: "search#index"
-      # end
-      # namespace :items do
-      #   get "find", to: "search#show"
-      #   get "find_all", to: "search#index"
-      #   get "random", to: "search#index"
-      # end
-      # namespace :invoice_items do
-      #   get "find", to: "search#show"
-      #   get "find_all", to: "search#index"
-      #   get "random", to: "search#index"
-      # end
-      # namespace :merchants do
-      #   get "find", to: "search#show"
-      #   get "find_all", to: "search#index"
-      #   get "random", to: "random#show"
-      # end
-      # namespace :transactions do
-      #   get "find", to: "search#show"
-      #   get "find_all", to: "search#index"
-      #   get "random", to: "random#show"
-      # end
-      # namespace :customers do
-      #   get "find", to: "search#show"
-      #   get "find_all", to: "search#index"
-      #   get "random", to: "random#show"
-      # end
     end
   end
 end
