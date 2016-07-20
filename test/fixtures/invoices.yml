@@ -3,9 +3,14 @@
 one:
   customer: one
   merchant: one
-  status: MyString
+  status: shipped
 
 two:
   customer: two
   merchant: two
-  status: MyString
+  status: shipped
+
+three:
+  customer: three
+  merchant: three
+  status: shipped
