@@ -52,6 +52,7 @@ Rails.application.routes.draw do
           get "find_all", to: "merchants/search#index"
           get "random", to: "merchants/search#index"
           get "revenue", to: "merchants/revenue#index"
+          get "most_revenue", to: "merchants/most_revenue#index"
         end
 
         member do

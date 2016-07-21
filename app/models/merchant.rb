@@ -9,8 +9,13 @@ class Merchant < ApplicationRecord
     {"total_revenue" => revenue}
   end
 
-  def self.most_revenue_by_quantity(revenue)
-
+  def self.most_revenue_by_quantity(quantity)
+    quantity = quantity.to_i
+    total = successful_transactions.group(:id).order("sum(invoice_items.quantity * invoice_items.unit_price) DESC")
+    .group(:id).limit("#{quantity}")
+    # joins(:invoice_items)
+    # .order('SUM(invoice_items.unit_price * invoice_items.quantity) DESC')
+    # .group(:id).limit(quantity)
   end
 
   private
