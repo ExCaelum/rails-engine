@@ -2,6 +2,7 @@ class Merchant < ApplicationRecord
   has_many :items
   has_many :invoices
   has_many :customers, through: :invoices
+  has_many :transactions, through: :invoices
 
   def self.total_revenue_by_date(date)
     total = successful_transactions.where(invoices: {created_at: "#{date}"})
@@ -16,8 +17,10 @@ class Merchant < ApplicationRecord
     .group(:id).limit("#{quantity}")
   end
 
-  def self.favorite_customer
-    
+  def customers_with_pending_invoices
+    Customer.find(invoices.joins(:transactions)
+    .where(transactions: {result: "failed"})
+    .joins(:customer).pluck(:customer_id).uniq)
   end
 
   private

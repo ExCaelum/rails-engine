@@ -58,6 +58,7 @@ Rails.application.routes.draw do
         member do
           get "items", to: "merchants/items#index"
           get "invoices", to: "merchants/invoices#index"
+          get "customers_with_pending_invoices", to: "merchants/pending_invoices#index"
         end
       end
 
