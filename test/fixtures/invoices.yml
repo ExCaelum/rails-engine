@@ -1,16 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   customer: one
   merchant: one
   status: shipped
 
 two:
+  id: 2
   customer: two
   merchant: two
   status: shipped
 
 three:
+  id: 3
   customer: three
   merchant: three
   status: shipped

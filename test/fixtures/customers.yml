@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   first_name: Joey
   last_name: Ondricka
 
 two:
+  id: 2
   first_name: Cecelia
   last_name: Osinski
