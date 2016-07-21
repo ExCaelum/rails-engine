@@ -23,6 +23,10 @@ class Merchant < ApplicationRecord
     .joins(:customer).pluck(:customer_id).uniq)
   end
 
+  def favorite_customer
+    customers.joins(invoices: :transactions).where(transactions: {result: "success"}).group(:id).order("COUNT(transactions) DESC").first
+  end
+
   private
 
   def self.successful_transactions
