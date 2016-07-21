@@ -1,12 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   invoice: one
   credit_card_number: 4654405418249632
   invoice_id: 2016-07-18 15:26:11
   result: success
 
 two:
+  id: 2
   invoice: two
   credit_card_number: 4654405418249688
   credit_card_expiration_date: 2016-07-18 15:26:11

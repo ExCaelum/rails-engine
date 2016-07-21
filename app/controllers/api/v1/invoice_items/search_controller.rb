@@ -1,5 +1,5 @@
 class Api::V1::InvoiceItems::SearchController < ApplicationController
-  respond_to :json, :xml
+  respond_to :json
 
   def index
     if params["unit_price"]
