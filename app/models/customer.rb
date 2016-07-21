@@ -1,6 +1,6 @@
 class Customer < ApplicationRecord
   has_many :invoices
-
+  has_many :merchants, through: :invoices
 
   def transactions
     trans =[]
@@ -11,7 +11,7 @@ class Customer < ApplicationRecord
     end
     trans
   end
-  
+
   # def transactions
   #   trans = []
   #   transactions = Transaction.joins(:invoice)

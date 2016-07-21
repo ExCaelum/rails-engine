@@ -1,6 +1,7 @@
 class Merchant < ApplicationRecord
   has_many :items
   has_many :invoices
+  has_many :customers, through: :invoices
 
   def self.total_revenue_by_date(date)
     total = successful_transactions.where(invoices: {created_at: "#{date}"})
@@ -13,9 +14,10 @@ class Merchant < ApplicationRecord
     quantity = quantity.to_i
     total = successful_transactions.group(:id).order("sum(invoice_items.quantity * invoice_items.unit_price) DESC")
     .group(:id).limit("#{quantity}")
-    # joins(:invoice_items)
-    # .order('SUM(invoice_items.unit_price * invoice_items.quantity) DESC')
-    # .group(:id).limit(quantity)
+  end
+
+  def self.favorite_customer
+    
   end
 
   private
