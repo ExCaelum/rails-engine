@@ -10,4 +10,8 @@ class Item < ApplicationRecord
     .sum("invoice_items.quantity").first.first
   end
 
+  def self.most_items(amount)
+    joins(:invoice_items).group(:id).order("COUNT(quantity) DESC").limit(amount)
+  end
+
 end
