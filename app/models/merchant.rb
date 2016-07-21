@@ -27,6 +27,20 @@ class Merchant < ApplicationRecord
     customers.joins(invoices: :transactions).where(transactions: {result: "success"}).group(:id).order("COUNT(transactions) DESC").first
   end
 
+  def revenue
+    invoices.joins(:transactions, :invoice_items).where(transactions: {result: "success"}).sum("invoice_items.quantity * invoice_items.unit_price")
+  end
+
+  def revenue_by_date(date)
+    revenue = invoices.joins(:transactions, :invoice_items).where(transactions: {result: "success"}).where(invoices: {created_at: "#{date}"}).sum("invoice_items.quantity * invoice_items.unit_price").to_d / 100
+    formatted_revenue = revenue.truncate.to_s + '.' + sprintf('%02d', (revenue.frac * 100).truncate)
+    {revenue: formatted_revenue}
+  end
+
+  def self.most_items(amount)
+    successful_transactions.group(:id).order("SUM(invoice_items.quantity) DESC").limit(amount)
+  end
+
   private
 
   def self.successful_transactions

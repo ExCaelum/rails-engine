@@ -8,6 +8,8 @@ Rails.application.routes.draw do
           get "find", to: "items/search#show"
           get "find_all", to: "items/search#index"
           get "random", to: "items/search#index"
+          get "most_items", to: "items/most_items#index"
+          get "most_revenue", to: "items/most_revenue#index"
         end
 
         member do
@@ -53,6 +55,7 @@ Rails.application.routes.draw do
           get "random", to: "merchants/search#index"
           get "revenue", to: "merchants/revenue#index"
           get "most_revenue", to: "merchants/most_revenue#index"
+          get "most_items", to: "merchants/most_items#index"
         end
 
         member do
@@ -60,6 +63,7 @@ Rails.application.routes.draw do
           get "invoices", to: "merchants/invoices#index"
           get "customers_with_pending_invoices", to: "merchants/pending_invoices#index"
           get "favorite_customer", to: "merchants/favorite_customer#show"
+          get "revenue", to: "merchants/revenue#show"
         end
       end
 
@@ -85,6 +89,7 @@ Rails.application.routes.draw do
         member do
           get "invoices", to: "customers/invoices#index"
           get "transactions", to: "customers/transactions#index"
+          get "favorite_merchant", to: "customers/favorite_merchant#show"
         end
       end
     end

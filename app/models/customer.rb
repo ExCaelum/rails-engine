@@ -1,24 +1,10 @@
 class Customer < ApplicationRecord
   has_many :invoices
   has_many :merchants, through: :invoices
+  has_many :transactions, through: :invoices
 
-  def transactions
-    trans =[]
-    self.invoices.each do |invoice|
-      invoice.transactions.each do |transaction|
-        trans << transaction
-      end
-    end
-    trans
+  def favorite_merchant
+    merchants.joins(invoices: :transactions).where(transactions: {result: "success"}).group(:id).order("COUNT(transactions) DESC").first
   end
-
-  # def transactions
-  #   trans = []
-  #   transactions = Transaction.joins(:invoice)
-  #   self.invoices.each do |invoice|
-  #     trans << transactions.where(invoice_id: invoice.id)
-  #   end
-  #   trans
-  # end
 
 end
