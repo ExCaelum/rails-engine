@@ -20,7 +20,6 @@ You may want to grab a coffee, this will take approximately 2 and a half minutes
      * /items/:id/merchant
      * /items/:id/best_day     
 
-
      * /invoice_items/find
      * /invoice_items/find_all
      * /invoice_items/random
