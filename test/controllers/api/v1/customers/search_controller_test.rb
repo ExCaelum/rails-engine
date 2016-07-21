@@ -16,7 +16,5 @@ class Api::V1::Customers::SearchControllerTest < ActionDispatch::IntegrationTest
     get "/api/v1/customers/find?"
 
     assert_response :success
-    parsed_customer = JSON.parse(response.body)
-    assert_equal 
   end
 end
