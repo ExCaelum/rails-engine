@@ -18,14 +18,13 @@ You may want to grab a coffee, this will take approximately 2 and a half minutes
      * /items/most_revenue
      * /items/:id/invoice_items
      * /items/:id/merchant
-     * /items/:id/best_day     
+     * /items/:id/best_day
 
      * /invoice_items/find
      * /invoice_items/find_all
      * /invoice_items/random
      * /invoice_items/:id/invoice
-     * /invoice_items/:id/item     
-
+     * /invoice_items/:id/item
 
      * /invoices/find
      * /invoices/find_all
@@ -34,8 +33,7 @@ You may want to grab a coffee, this will take approximately 2 and a half minutes
      * /invoices/:id/invoice_items
      * /invoices/:id/items
      * /invoices/:id/customer
-     * /invoices/:id/merchant     
-
+     * /invoices/:id/merchant
 
      * /merchants/find
      * /merchants/find_all
@@ -47,14 +45,12 @@ You may want to grab a coffee, this will take approximately 2 and a half minutes
      * /merchants/:id/invoices
      * /merchants/:id/customers_with_pending_invoices
      * /merchants/:id/favorite_customer
-     * /merchants/:id/revenue     
-
+     * /merchants/:id/revenue
 
      * /transactions/find
      * /transactions/find_all
      * /transactions/random
-     * /transactions/:id/invoice     
-
+     * /transactions/:id/invoice
 
      * /customers/find
      * /customers/find_all
