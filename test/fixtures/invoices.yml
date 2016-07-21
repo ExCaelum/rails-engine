@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  merchant: one
+  status: shipped
+
+two:
+  customer: two
+  merchant: two
+  status: shipped
+
+three:
+  customer: three
+  merchant: three
+  status: shipped
